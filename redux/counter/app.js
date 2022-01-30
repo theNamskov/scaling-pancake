@@ -34,5 +34,6 @@ const dispatch = (action) => {
 
  subscribe(updateView)
 
+const stepRef = document.querySelector('#step')
 document.querySelector('#inc').addEventListener('click', (e) => dispatch({ type: INC }))
 document.querySelector('#dec').addEventListener('click', (e) => dispatch({ type: DEC }))
