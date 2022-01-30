@@ -14,9 +14,9 @@ const subscribe = (cb) => listeners.push(cb)
 const reducer = (currState, {type, payload }) => {
     switch(type) {
         case INC:
-            return ({ ...currState, counter: currState.counter + payload.step })
+            return ({ ...currState, counter: currState.counter + Number.parseInt(payload.step) })
         case DEC:
-            return ({ ...currState, counter: currState.counter - payload.step })
+            return ({ ...currState, counter: currState.counter - Number.parseInt(payload.step) })
         default:
             return currState
     }
@@ -32,10 +32,10 @@ const dispatch = (action) => {
     listeners.forEach(subscriber => subscriber(state))
  }
 
- const createActionObj = (type, ...payload) => ({ type, payload })
+ const createAction = (type, step) => ({ type, payload: {step} })
 
  subscribe(updateView)
 
 const stepRef = document.querySelector('#step')
-document.querySelector('#inc').addEventListener('click', (e) => dispatch({ type: INC }))
-document.querySelector('#dec').addEventListener('click', (e) => dispatch({ type: DEC }))
+document.querySelector('#inc').addEventListener('click', (e) => dispatch(createAction(INC, stepRef.value)))
+document.querySelector('#dec').addEventListener('click', (e) => dispatch(createAction(DEC, stepRef.value)))
