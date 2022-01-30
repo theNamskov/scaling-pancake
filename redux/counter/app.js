@@ -32,6 +32,8 @@ const dispatch = (action) => {
     listeners.forEach(subscriber => subscriber(state))
  }
 
+ const createActionObj = (type, ...payload) => ({ type, payload })
+
  subscribe(updateView)
 
 const stepRef = document.querySelector('#step')
