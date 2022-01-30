@@ -6,17 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redux Counter</title>
 
-    <script src="app.js"></script>
 </head>
 <body>
+
+    <div>
+        Increase by: <span><input type="number" name="step" id="step" value="1" min="1"></span>
+    </div>
     
     <div>
         Counter:
-        <span id="counter"></span>
+        <span id="counter">0</span>
     </div>
-
+    
     <button id="inc">Increment</button>
     <button id="dec">Decrement</button>
-
+    
+    <script src="app.js"></script>
 </body>
 </html>
