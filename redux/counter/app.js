@@ -4,7 +4,7 @@ const listeners = []
 
 const updateView = ({counter}) => document.querySelector('#counter').textContent = counter
 
-const subscribe = (cb) => { }
+const subscribe = (cb) => listeners.push(cb)
 
 const reducer = (currState, action) => { }
  
