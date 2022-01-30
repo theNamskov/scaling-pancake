@@ -2,7 +2,7 @@ const state = null
 
 const listeners = []
 
-// TODO: Define callbacks for subscription
+const updateView = ({counter}) => document.querySelector('#counter').textContent = counter
 
 const subscribe = (cb) => { }
 
