@@ -11,12 +11,12 @@ const updateView = ({counter}) => document.querySelector('#counter').innerText =
 
 const subscribe = (cb) => listeners.push(cb)
 
-const reducer = (currState, {type}) => {
+const reducer = (currState, {type, payload }) => {
     switch(type) {
         case INC:
-            return ({ ...currState, counter: currState.counter + 1 })
+            return ({ ...currState, counter: currState.counter + payload.step })
         case DEC:
-            return ({ ...currState, counter: currState.counter - 1 })
+            return ({ ...currState, counter: currState.counter - payload.step })
         default:
             return currState
     }
