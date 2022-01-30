@@ -20,6 +20,14 @@ const reducer = (currState, {type}) => {
     }
  }
  
-const dispatch = (action) => { }
+const dispatch = (action) => { 
+    const newState = reducer(state, action)
+
+    if(state !== newState) {
+        state = newState
+    }
+
+    listeners.forEach(subscriber => subscriber(state))
+ }
 
 // TODO: Set up click listener callbacks for increment and decrement buttons
