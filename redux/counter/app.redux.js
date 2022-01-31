@@ -1,11 +1,11 @@
 let initialState = {
-    counter: 1
+    counter: 3
 }
 
 const INC = 'INC',
       DEC = 'DEC'
 
-const reducer = (currState, {type, payload }) => {
+const reducer = (currState, { type, payload }) => {
     switch(type) {
         case INC:
             return ({ ...currState, counter: currState.counter + Number.parseInt(payload.step) })
@@ -27,5 +27,5 @@ const reducer = (currState, {type, payload }) => {
  const createAction = (type, step) => ({ type, payload: {step} })
 
  const stepRef = document.querySelector('#step')
- document.querySelector('#inc').addEventListener('click', store.dispatch(createAction(INC, stepRef.value)))
- document.querySelector('#dec').addEventListener('click', store.dispatch(createAction(DEC, stepRef.value)))
+ document.querySelector('#inc').addEventListener('click', (e) => store.dispatch(createAction(INC, stepRef.value)))
+ document.querySelector('#dec').addEventListener('click', (e) => store.dispatch(createAction(DEC, stepRef.value)))
