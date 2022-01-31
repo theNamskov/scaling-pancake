@@ -21,3 +21,5 @@ const reducer = (currState, {type, payload }) => {
  const updateView = () => document.querySelector('#counter').innerText = store.getState().counter
 
  store.subscribe(updateView)
+
+ const createAction = (type, step) => ({ type, payload: {step} })
