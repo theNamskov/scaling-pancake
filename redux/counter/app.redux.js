@@ -1,5 +1,5 @@
 let initialState = {
-    counter: 0
+    counter: 1
 }
 
 const INC = 'INC',
@@ -21,5 +21,11 @@ const reducer = (currState, {type, payload }) => {
  const updateView = () => document.querySelector('#counter').innerText = store.getState().counter
 
  store.subscribe(updateView)
+ 
+ updateView()
 
  const createAction = (type, step) => ({ type, payload: {step} })
+
+ const stepRef = document.querySelector('#step')
+ document.querySelector('#inc').addEventListener('click', store.dispatch(createAction(INC, stepRef.value)))
+ document.querySelector('#dec').addEventListener('click', store.dispatch(createAction(DEC, stepRef.value)))
