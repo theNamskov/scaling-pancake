@@ -17,3 +17,7 @@ const reducer = (currState, {type, payload }) => {
  }
 
  const store = Redux.createStore(reducer, initialState)
+
+ const updateView = () => document.querySelector('#counter').innerText = store.getState().counter
+
+ store.subscribe(updateView)
