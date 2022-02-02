@@ -1,6 +1,7 @@
 import $ from 'jquery'
 
 import store from './store'
+import { addRecipe } from './actions/recipes'
 
 const updateUI = () => {
 
@@ -8,6 +9,12 @@ const updateUI = () => {
     const displayRecipe = ( {name} ) => `<li>${name}</li>`
 
     $('.recipes > ul').html(recipes.map(displayRecipe))
+}
+
+const handleAdd = () => {
+    const $recipeNameRef = $('.recipes > input')
+
+    store.dispatch(addRecipe($recipeNameRef.val()))
 }
 
 export default () => {
@@ -21,6 +28,8 @@ export default () => {
     `)
 
     store.subscribe(updateUI)
+
+    $(document).on('click', '.recipes > button', handleAdd)
 
     updateUI()
 }
