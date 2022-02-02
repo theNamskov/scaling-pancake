@@ -9,3 +9,16 @@ const updateUI = () => {
 
     $('.recipes > ul').html(recipes.map(displayRecipe))
 }
+
+export default loadUI = () => {
+    $('#app').append(`
+        <div class="recipes">
+            <div>Recipes:</div>
+            <ul></ul>
+        </div>
+    `)
+
+    store.subscribe(updateUI)
+
+    updateUI()
+}
