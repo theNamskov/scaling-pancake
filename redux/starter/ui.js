@@ -15,6 +15,8 @@ export default () => {
         <div class="recipes">
             <div>Recipes:</div>
             <ul></ul>
+            <input type="text" />
+            <button>Add Recipe</button>
         </div>
     `)
 
