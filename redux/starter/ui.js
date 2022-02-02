@@ -10,7 +10,7 @@ const updateUI = () => {
     $('.recipes > ul').html(recipes.map(displayRecipe))
 }
 
-export default loadUI = () => {
+export default () => {
     $('#app').append(`
         <div class="recipes">
             <div>Recipes:</div>
